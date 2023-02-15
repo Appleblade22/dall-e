@@ -4,7 +4,7 @@ import cors from "cors";
 import  connectDB  from "./mongodb/connect.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
-
+import translateRoutes from "./routes/translateRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.urlencoded({limit: "50mb", extended: true}));
 
 app.use('/api/v1/dalle', dalleRoutes);
 app.use('/api/v1/post', postRoutes);
+app.use('/api/translate', translateRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
